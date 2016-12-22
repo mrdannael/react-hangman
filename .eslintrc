@@ -1,0 +1,24 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "plugins": ["import", "lodash", "react"],
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:lodash/recommended"
+  ],
+  "rules": {
+    "global-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "semi": ["error", "never"],
+    "comma-dangle": ["error", "only-multiline"],
+    "space-before-function-paren": ["error", "never"],
+    "class-methods-use-this": "off",
+    "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+    "no-shadow": "off",
+    "react/jsx-filename-extension": "off"
+  }
+}
