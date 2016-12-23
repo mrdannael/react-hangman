@@ -33,7 +33,8 @@ var config = {
       { test: /\.sass$/, loaders: ['style', 'css', 'postcss', 'sass?outputStyle=expanded'] },
       { test: /\.svg$/, loaders: ['raw'] },
       { test: /\.json$/, loaders: ['json'] },
-      { test: /\.ttf$/, loaders: ['file'] }
+      { test: /\.ttf$/, loaders: ['file'] },
+      { test: /\.png$/, loaders: ['file'] },
     ]
   },
   postcss: function(webpack) {

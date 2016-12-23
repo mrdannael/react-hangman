@@ -6,7 +6,8 @@ import './main.sass'
 
 import Letter from '../components/letter/Letter'
 import MissedLetters from '../components/missedLetters/MissedLetters'
-import GameOver from '../components/gameOver/GameOver'
+import Hangman from '../components/hangman/Hangman'
+// import GameOver from '../components/gameOver/GameOver'
 import * as wordActions from '../actions/wordActions'
 
 
@@ -44,20 +45,25 @@ class Main extends Component {
   }
 
   render() {
-    const { word, hit, isPlaying } = this.props.data
+    const { word, hit, miss } = this.props.data
     console.info(this.props)
     return (
       <div style={{ height: '100%' }}>
-        {join(word, '')}
-        <div>
-          <MissedLetters />
+        <div className="container">
+          <div className="game">
+            <div className="hangmiss">
+              <Hangman miss={miss} />
+              <MissedLetters />
+            </div>
+            <div>Cheat: {join(word, '')}</div>
+            <div className="word">
+              {map(word, (letter, key) =>
+                <Letter key={key} exposed={hit[key] === '_'} letter={letter} />
+              )}
+            </div>
+            <div className="triangle" />
+          </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          {map(word, (letter, key) =>
-            <Letter key={key} exposed={hit[key] === '_'} letter={letter} />
-          )}
-        </div>
-        {!isPlaying ? <GameOver /> : null}
       </div>
     )
   }
